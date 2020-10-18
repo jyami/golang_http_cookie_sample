@@ -50,21 +50,6 @@ func main() {
 	}
 }
 
-func get(client *http.Client, u string) {
-	resp, err := client.Get(u)
-	if err != nil {
-		panic(err)
-	}
-	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(resp.Status)
-	fmt.Printf("%v\n", resp.Header)
-	fmt.Println(string(body))
-}
-
 func login(client *http.Client, u string) error {
 	log.Printf("login\n")
 	u = u + "/login"
@@ -74,13 +59,6 @@ func login(client *http.Client, u string) error {
 		return err
 	}
 	fmt.Println(resp.Status)
-
-	//	defer resp.Body.Close()
-	//	body, err := ioutil.ReadAll(resp.Body)
-	//	if err != nil {
-	//		panic(err)
-	//	}
-	//	fmt.Println(string(body))
 
 	ur, err := url.Parse(u)
 	if err != nil {

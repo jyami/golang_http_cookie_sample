@@ -24,9 +24,8 @@ func secret(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Forbidden", http.StatusForbidden)
 		return
 	}
-	log.Printf("%w\n", session)
+	log.Printf("%v\n", session)
 
-	// 認証済みかどうかチェックする。
 	if auth, ok := session.Values["authenticated"].(bool); !ok || !auth {
 		http.Error(w, "Forbidden", http.StatusForbidden)
 		return
@@ -35,18 +34,13 @@ func secret(w http.ResponseWriter, r *http.Request) {
 	session.Values["authenticated"] = false
 	session.Save(r, w)
 
-	// 秘密のメッセージを表示する。
-	fmt.Fprintln(w, "The cake is a lie!")
+	fmt.Fprintln(w, "secret message...")
 }
 
 func login(w http.ResponseWriter, r *http.Request) {
 	log.Printf("login\n")
 	session, _ := store.Get(r, "cookie-name")
 
-	// ここで認証を行う。
-	// ...
-
-	// ユーザーを認証済みに設定する。
 	session.Values["authenticated"] = true
 	session.Save(r, w)
 }
@@ -59,16 +53,15 @@ func logout(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Forbidden", http.StatusForbidden)
 		return
 	}
-	log.Printf("%w\n", session)
+	log.Printf("%v\n", session)
 
-	// 認証を無効にする。
 	session.Values["authenticated"] = false
 	//delete(session.Values, "authenticated")
 	session.Options.MaxAge = -1
 	session.Save(r, w)
 
 	session, err = store.Get(r, "cookie-name")
-	log.Printf("%w\n", session)
+	log.Printf("%v\n", session)
 }
 
 func main() {

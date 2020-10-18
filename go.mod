@@ -1,4 +1,4 @@
-module github.com/jyami/httpserver01
+module github.com/jyami/golang_http_cookie_sample
 
 go 1.15
 

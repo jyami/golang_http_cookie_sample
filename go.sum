@@ -1,3 +1,5 @@
+github.com/gorilla/http v0.0.0-20190627042742-d268792bdee7 h1:bFJgNQQcl/uBD2BuTZGYZ3lDomhIxCcn8r812nV0YmY=
+github.com/gorilla/http v0.0.0-20190627042742-d268792bdee7/go.mod h1:7SoxxYlLs8XfoT5AXYy1WWMqjg3iaA9gZblNHzXQDqo=
 github.com/gorilla/securecookie v1.1.1 h1:miw7JPhV+b/lAHSXz4qd/nN9jRiAFV5FwjeKyCS8BvQ=
 github.com/gorilla/securecookie v1.1.1/go.mod h1:ra0sb63/xPlUeL+yeDciTfxMRAA+MP+HVt/4epWDjd4=
 github.com/gorilla/sessions v1.2.1 h1:DHd3rPN5lE3Ts3D8rKkQ8x/0kqfeNmBAaiSi+o7FsgI=
